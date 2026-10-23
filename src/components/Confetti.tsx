@@ -18,13 +18,12 @@ interface Particle {
 }
 
 const COLORS = [
-  '#c5ff41', // Neon lime
-  '#f46c38', // Orange
-  '#3b82f6', // Blue
-  '#ec4899', // Pink
-  '#a855f7', // Purple
-  '#10b981', // Emerald
-  '#fbbf24'  // Yellow
+  '#00ff66', // 8-bit lime
+  '#00f0ff', // Cyber cyan
+  '#ff007f', // Synthwave magenta
+  '#ffb703', // Arcade coin gold
+  '#9d4edd', // 8-bit purple
+  '#ffffff'  // Bright pixel white
 ];
 
 export const Confetti: React.FC<ConfettiProps> = ({ active, onComplete }) => {
@@ -104,8 +103,8 @@ export const Confetti: React.FC<ConfettiProps> = ({ active, onComplete }) => {
         ctx.globalAlpha = Math.max(0, p.opacity);
         ctx.fillStyle = p.color;
         
-        // Render a small rectangle
-        ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2);
+        // Render a crisp pixel square
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
         ctx.restore();
       });
 

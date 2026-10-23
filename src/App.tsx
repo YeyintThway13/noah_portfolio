@@ -268,6 +268,10 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen">
+      {/* Retro CRT Scanlines & Pixel Screen Overlay */}
+      <div className="crt-overlay" />
+      <div className="pixel-grid-pattern" />
+
       {/* Background glow overlays */}
       <div className="glow-spot" style={{ top: '-100px', left: '-50px' }} />
       <div className="glow-spot glow-orange" style={{ top: '40%', right: '-50px' }} />
