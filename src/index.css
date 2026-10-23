@@ -2133,33 +2133,142 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Disable hover effects on mobile & tablet viewports */
-@media (max-width: 992px) {
-  .btn-primary:hover,
-  .btn-secondary:hover,
-  .profile-social-link:hover,
-  .highlight-card:hover,
-  .project-card:hover,
-  .tool-card:hover,
-  .social-link:hover,
-  .nav-icon-btn:hover,
-  .project-modal-close:hover {
-    transform: none !important;
+/* ==========================================================================
+   DISABLE ALL HOVER & FOCUS EFFECTS ON MOBILE & TABLET SCREEN SIZES (<= 1024px)
+   ========================================================================== */
+@media (max-width: 1024px), (hover: none) {
+  /* Prevent tap highlight flash */
+  *, *::before, *::after {
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  /* Reset default outlines and focus rings across all elements */
+  *:focus,
+  *:focus-visible,
+  *:focus-within {
+    outline: none !important;
     box-shadow: none !important;
   }
-  
-  .glass-panel:hover {
+
+  /* Form inputs & textareas on mobile/tablet */
+  .form-input:hover,
+  .form-input:focus,
+  .form-input:focus-visible,
+  .form-textarea:hover,
+  .form-textarea:focus,
+  .form-textarea:focus-visible {
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    background: rgba(255, 255, 255, 0.02) !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  /* Buttons, links & CTA elements: remove all hover/focus transforms, glows, and filter brightness */
+  .btn-primary:hover,
+  .btn-primary:focus,
+  .btn-primary:focus-visible,
+  .btn-secondary:hover,
+  .btn-secondary:focus,
+  .btn-secondary:focus-visible,
+  .submit-btn-full:hover,
+  .submit-btn-full:focus,
+  .hero-social-btn:hover,
+  .hero-social-btn:focus,
+  .social-link:hover,
+  .social-link:focus,
+  .nav-icon-btn:hover,
+  .nav-icon-btn:focus,
+  .project-modal-close:hover,
+  .project-modal-close:focus {
+    transform: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: var(--accent-primary) !important;
+    color: var(--bg-darker) !important;
+  }
+
+  .btn-secondary:hover,
+  .btn-secondary:focus {
+    background-color: transparent !important;
+    border-color: var(--card-border) !important;
+    color: var(--text-primary) !important;
+  }
+
+  .hero-social-btn:hover,
+  .hero-social-btn:focus {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    color: white !important;
+  }
+
+  .social-link:hover,
+  .social-link:focus {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border-color: var(--card-border) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+
+  .nav-icon-btn:hover,
+  .nav-icon-btn:focus {
+    color: rgba(255, 255, 255, 0.5) !important;
+    background: none !important;
+  }
+
+  .nav-icon-btn.active:hover,
+  .nav-icon-btn.active:focus {
+    color: var(--accent-primary) !important;
+  }
+
+  .nav-icon-btn.active[aria-label="Experience"]:hover,
+  .nav-icon-btn.active[aria-label="Contact"]:hover,
+  .nav-icon-btn.active[aria-label="Experience"]:focus,
+  .nav-icon-btn.active[aria-label="Contact"]:focus {
+    color: var(--accent-secondary) !important;
+  }
+
+  /* Filter buttons & Engagement type selectors */
+  .filter-btn:not(.active):hover,
+  .filter-btn:not(.active):focus,
+  .engagement-btn:not(.active):hover,
+  .engagement-btn:not(.active):focus,
+  .budget-btn:not(.active):hover,
+  .budget-btn:not(.active):focus {
+    border-color: var(--card-border) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    background: rgba(255, 255, 255, 0.01) !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  .filter-btn.active:hover,
+  .filter-btn.active:focus,
+  .engagement-btn.active:hover,
+  .engagement-btn.active:focus,
+  .budget-btn.active:hover,
+  .budget-btn.active:focus {
+    transform: none !important;
+  }
+
+  .engagement-btn:hover svg,
+  .engagement-btn:focus svg {
+    transform: none !important;
+  }
+
+  /* Glass Panels */
+  .glass-panel:hover,
+  .glass-panel:focus {
     border-color: var(--card-border) !important;
     box-shadow: none !important;
   }
-  
-  .profile-card:hover .profile-avatar {
+
+  /* Hero portrait card */
+  .hero-portrait-card:hover,
+  .hero-portrait-card:focus {
     transform: none !important;
-  }
-  
-  .profile-card:hover .profile-avatar-frame {
-    border-color: rgba(244, 108, 56, 0.3) !important;
-    box-shadow: none !important;
   }
 
   .hero-portrait-card:hover .hero-portrait-bg-text {
@@ -2177,137 +2286,135 @@ h1, h2, h3, h4, h5, h6 {
   .hero-portrait-card:hover .hero-portrait-img {
     transform: none !important;
   }
-  
+
+  /* Highlights Cards */
+  .highlight-card:hover,
+  .highlight-card:focus,
+  .highlight-card.orange:hover,
+  .highlight-card.orange:focus,
+  .highlight-card.lime:hover,
+  .highlight-card.lime:focus {
+    transform: none !important;
+    border-color: var(--card-border) !important;
+    box-shadow: none !important;
+  }
+
   .highlight-card.orange:hover .highlight-arrow-btn,
-  .highlight-card.lime:hover .highlight-arrow-btn {
+  .highlight-card.lime:hover .highlight-arrow-btn,
+  .highlight-card.orange:focus .highlight-arrow-btn,
+  .highlight-card.lime:focus .highlight-arrow-btn {
     border-color: rgba(255, 255, 255, 0.15) !important;
     color: rgba(255, 255, 255, 0.6) !important;
     transform: none !important;
   }
-  
-  .skill-tag:hover {
-    color: rgba(255, 255, 255, 0.2) !important;
+
+  /* Featured Work Project Cards */
+  .project-card:hover,
+  .project-card:focus {
+    transform: none !important;
+    background: rgba(20, 18, 17, 0.7) !important;
+    border-color: rgba(255, 255, 255, 0.05) !important;
+    box-shadow: none !important;
   }
-  
-  .filter-btn:not(.active):hover {
-    border-color: var(--card-border) !important;
-  }
-  
-  .project-card:hover::before {
+
+  .project-card:hover::before,
+  .project-card:focus::before {
     width: 0 !important;
   }
 
-  .project-card:hover {
-    background: rgba(20, 18, 17, 0.7) !important;
-    border-color: rgba(255, 255, 255, 0.05) !important;
-  }
-  
-  .project-card:hover .project-card-title {
+  .project-card:hover .project-card-title,
+  .project-card:focus .project-card-title {
     color: white !important;
   }
-  
-  .project-card:hover .project-card-number {
+
+  .project-card:hover .project-card-number,
+  .project-card:focus .project-card-number {
     -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.04) !important;
     transform: none !important;
   }
-  
-  .project-card:hover .project-card-tag {
+
+  .project-card:hover .project-card-description,
+  .project-card:focus .project-card-description {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  .project-card:hover .project-card-tag,
+  .project-card:focus .project-card-tag {
     background: rgba(255, 255, 255, 0.03) !important;
     border-color: rgba(255, 255, 255, 0.06) !important;
     color: rgba(255, 255, 255, 0.7) !important;
   }
-  
-  .project-card:hover .project-card-cta-btn {
+
+  .project-card:hover .project-card-cta-btn,
+  .project-card:focus .project-card-cta-btn {
     background: rgba(255, 255, 255, 0.02) !important;
     border-color: rgba(255, 255, 255, 0.12) !important;
     color: white !important;
   }
-  
-  .project-card:hover .project-card-cta-icon {
+
+  .project-card:hover .project-card-cta-icon,
+  .project-card:focus .project-card-cta-icon {
     transform: none !important;
   }
-  
-  .experience-item:hover .experience-dot {
+
+  /* Experience Career Timeline */
+  .experience-item:hover,
+  .experience-item:focus {
+    transform: none !important;
+  }
+
+  .experience-item:hover .experience-dot,
+  .experience-item:focus .experience-dot {
     background: var(--bg-color) !important;
     border-color: var(--accent-secondary) !important;
     box-shadow: 0 0 10px rgba(244, 108, 56, 0.2) !important;
     transform: none !important;
   }
 
-  .experience-card-body:hover {
+  .experience-card-body:hover,
+  .experience-card-body:focus {
     transform: none !important;
     border-color: var(--card-border) !important;
     background: var(--card-bg) !important;
     box-shadow: none !important;
   }
 
-  .tool-card:hover {
+  /* Tools & Arsenal */
+  .tool-card:hover,
+  .tool-card:focus {
     border-color: var(--card-border) !important;
     background: var(--card-bg) !important;
     transform: none !important;
     box-shadow: none !important;
   }
-  
-  .tool-card:hover .tool-icon-frame {
+
+  .tool-card:hover .tool-icon-frame,
+  .tool-card:focus .tool-icon-frame {
     color: rgba(255, 255, 255, 0.8) !important;
     background: rgba(255, 255, 255, 0.03) !important;
     border-color: rgba(255, 255, 255, 0.08) !important;
     transform: none !important;
   }
 
-  .faq-item:hover {
+  /* FAQ Accordion */
+  .faq-item:hover,
+  .faq-item:focus {
     border-color: var(--card-border) !important;
     background: var(--card-bg) !important;
   }
 
-  .form-input:hover {
-    border-color: rgba(255, 255, 255, 0.08) !important;
-    background: rgba(255, 255, 255, 0.015) !important;
-  }
-  
-  .faq-question-btn:hover .faq-question {
+  .faq-question-btn:hover .faq-question,
+  .faq-question-btn:focus .faq-question {
     color: white !important;
   }
-  
-  .budget-btn:hover {
-    border-color: rgba(255, 255, 255, 0.1) !important;
-  }
-  
-  .budget-btn.active:hover {
-    border-color: var(--accent-primary) !important;
-  }
-  
-  .btn-primary:hover {
-    background-color: var(--accent-primary) !important;
-    color: var(--bg-darker) !important;
-  }
-  
-  .btn-secondary:hover {
-    background-color: transparent !important;
-    border-color: var(--card-border) !important;
-    color: var(--text-primary) !important;
-  }
-  
-  .social-link:hover {
-    border-color: var(--card-border) !important;
-    color: rgba(255, 255, 255, 0.8) !important;
-  }
-  
-  .nav-icon-btn:hover {
-    color: rgba(255, 255, 255, 0.5) !important;
-    background: none !important;
-  }
-  
-  .nav-icon-btn.active:hover {
+
+  .faq-item.active .faq-question {
     color: var(--accent-primary) !important;
   }
-  
-  .nav-icon-btn.active[aria-label="Experience"]:hover,
-  .nav-icon-btn.active[aria-label="Contact"]:hover {
-    color: var(--accent-secondary) !important;
-  }
-  
-  .project-modal-close:hover {
+
+  /* Modal Close */
+  .project-modal-close:hover,
+  .project-modal-close:focus {
     background: rgba(255, 255, 255, 0.03) !important;
     color: rgba(255, 255, 255, 0.6) !important;
     transform: none !important;
